@@ -1,5 +1,7 @@
 # BullCowGame
 
+- The demonstration film is coming soon.
+
 Text game developed in Unreal Engine 4 and C ++ for learning purposes. There is a simple map in the game with a plate to which a component with a terminal is attached.
 
 The player has to guess the secret word. For each wrong answer, the player loses a life. If he loses them, a recovery game may begin. A hint system has been added to the game:
