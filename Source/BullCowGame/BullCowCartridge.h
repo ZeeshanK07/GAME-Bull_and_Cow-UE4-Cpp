@@ -24,8 +24,7 @@ class BULLCOWGAME_API UBullCowCartridge : public UCartridge
 	private:
 	FString HiddenWord;
 	FString GameStatus;
-	int32 Bull;
-	FString Cow;
 	int32 Lives;
 	bool bGameOver;
+
 };
