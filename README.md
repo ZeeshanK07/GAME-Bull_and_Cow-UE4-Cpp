@@ -10,4 +10,3 @@ The player has to guess the secret word. For each wrong answer, the player loses
 
 The final form of the game will be added as a puzzle in Mars Marine in order to hack the computers that open doors.
 
-The version of the game from the demo video is available to play in the Bull_and_Cow exe folder.
