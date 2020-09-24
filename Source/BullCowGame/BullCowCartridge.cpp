@@ -39,7 +39,7 @@ void UBullCowCartridge::ProcessGuess(FString Guess)
     else
     {
         --Lives;
-       /* if (!IsIsogram(Guess))
+        /*if (!IsIsogram(Guess))
             {
                 PrintLine(FString::Printf(TEXT("You have %i bull."), Lives));
             }
@@ -65,9 +65,11 @@ void UBullCowCartridge::ProcessGuess(FString Guess)
         }
     }
 }
-//bool UBullCowCartridge::IsIsogram(FString Word) const
-/*{
-    for (int32 Letter = 0; Letter < Word.Len(); Letter++)
+bool UBullCowCartridge::IsIsogram(FString Word) const
+{
+
+
+    /*for (int32 Letter = 0; Letter < Word.Len(); Letter++)
     {
         PrintLine(FString::Printf(TEXT("%c"), Word[Letter]));
         if (Word[Letter] == HiddenWord[Letter])
@@ -78,12 +80,12 @@ void UBullCowCartridge::ProcessGuess(FString Guess)
             {
                 Cow == Cow + 1;
             }
-    }
+    }*/
     return true;
-}*/
+}
 void UBullCowCartridge::EndGame(FString Guess)
 {
-    if (bGameOver) // Game over
+    if (bGameOver)
     {
         if (GameStatus == "Player lost")
         {
@@ -103,7 +105,7 @@ void UBullCowCartridge::EndGame(FString Guess)
         if (GameStatus == "Player win")
         {
             ClearScreen();
-            PrintLine(TEXT("Good, YOU WIN!")); // Win
+            PrintLine(TEXT("Good, YOU WIN!"));
             PrintLine(TEXT("\n\n"
                 "If You want play again write Yes\n"
                 "If You don't want play again click ESC"));
