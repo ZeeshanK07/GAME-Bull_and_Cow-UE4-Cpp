@@ -1,3 +1,4 @@
+// Fill out your copyright notice in the Description page of Project Settings.
 #pragma once
 
 #include "CoreMinimal.h"
@@ -18,6 +19,7 @@ class BULLCOWGAME_API UBullCowCartridge : public UCartridge
 	void ProcessGuess(FString Guess);
 	bool IsIsogram(FString Word) const;
 
+	// Your declarations go below!
 	private:
 	FString HiddenWord;
 	FString GameStatus;
