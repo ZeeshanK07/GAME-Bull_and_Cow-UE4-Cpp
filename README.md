@@ -1,6 +1,7 @@
 # BullCowGame
 
-The demonstration film: https://www.youtube.com/watch?v=unAE4590_ms&ab_channel=JakubMichalewicz
+- The demonstration film: https://www.youtube.com/watch?v=unAE4590_ms&ab_channel=JakubMichalewicz
+- Build v01 (exe): https://1drv.ms/u/s!Avqpi1qOZIAaj49RHCx7cPZ52cBCAw?e=X83nrC
 
 Text game developed in Unreal Engine 4 and C ++ for learning purposes. There is a simple map in the game with a plate to which a component with a terminal is attached.
 
