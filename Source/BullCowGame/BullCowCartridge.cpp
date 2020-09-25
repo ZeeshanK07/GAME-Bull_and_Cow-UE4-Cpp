@@ -6,6 +6,10 @@ void UBullCowCartridge::BeginPlay()
     Super::BeginPlay();
     InitGame();
     PrintLine(TEXT("   Click: Mouse, next TAB and play!\n"));
+    for (int32 one_word = 0; one_word < 5; one_word++)
+    {
+        PrintLine(TEXT("%i word in words array is: %s"), one_word, *Words[one_word]);
+    }
 }
 void UBullCowCartridge::InitGame()
 {
