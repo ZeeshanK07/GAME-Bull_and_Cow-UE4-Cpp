@@ -15,7 +15,7 @@ void UBullCowCartridge::InitGame()
     Introduction();
     PrintLine(TEXT("Numbers of valid words is: %i"), GetValidWords(Words).Num());
 }
-TArray<FString> UBullCowCartridge::GetValidWords(TArray<FString> WordList) const
+TArray<FString> UBullCowCartridge::GetValidWords(const TArray<FString>& WordList) const
 {
     TArray<FString> ValidWords;
     for (FString Word : WordList)
@@ -37,12 +37,12 @@ void UBullCowCartridge::Introduction()
         "   In good site = +1 Bull and -1 live.\n"
         "   In bad site = +1 Cow and -1 live.\n"), HiddenWord.Len()));
 }
-void UBullCowCartridge::OnInput(const FString& Input)
+void UBullCowCartridge::OnInput(const FString& PlayerInput)
 {
-    ProcessGuess(Input);
-    EndGame(Input);
+    ProcessGuess(PlayerInput);
+    EndGame(PlayerInput);
 }
-void UBullCowCartridge::ProcessGuess(FString Guess)
+void UBullCowCartridge::ProcessGuess(const FString& Guess)
 {
     if (HiddenWord == Guess)
         {
@@ -79,7 +79,7 @@ void UBullCowCartridge::ProcessGuess(FString Guess)
         }
     }
 }
-bool UBullCowCartridge::IsIsogram(FString Word) const
+bool UBullCowCartridge::IsIsogram(const FString& Word) const
 {
     for (int32 Index = 0 ; Index < Word.Len(); Index++)
     {
@@ -94,7 +94,7 @@ bool UBullCowCartridge::IsIsogram(FString Word) const
     }
     return true;
 }
-void UBullCowCartridge::EndGame(FString Guess)
+void UBullCowCartridge::EndGame(const FString& Guess)
 {
     if (bGameOver)
     {
