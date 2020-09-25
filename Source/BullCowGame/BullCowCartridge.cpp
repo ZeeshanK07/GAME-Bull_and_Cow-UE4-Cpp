@@ -6,20 +6,6 @@ void UBullCowCartridge::BeginPlay()
     Super::BeginPlay();
     InitGame();
     PrintLine(TEXT("   Click: Mouse, next TAB and play!\n"));
-    PrintLine(FString::Printf(TEXT("Number of all hidden words is: %i"), Words.Num()));
-    
-    TArray<FString> ValidWords;
-    for (int32 Index = 0; Index < 10; Index++)
-    {
-        if (Words[Index].Len() >= 4 && Words[Index].Len() <=8)
-        {
-            ValidWords.Emplace(Words[Index]);
-        }
-    }
-    for (int32 Index = 0; Index < ValidWords.Num(); Index++)
-    {
-        PrintLine(FString::Printf(TEXT("%s"), *ValidWords[Index]));
-    }
 }
 void UBullCowCartridge::InitGame()
 {
@@ -27,6 +13,19 @@ void UBullCowCartridge::InitGame()
     Lives = HiddenWord.Len() + 1;
     bGameOver = false;
     Introduction();
+    //PrintLine(TEXT("Numbers of vali words is: %i"), GetValidWords(Words).Num());
+}
+TArray<FString> UBullCowCartridge::GetValidWords(TArray<FString> WordList) const
+{
+    TArray<FString> ValidWords;
+    for (int32 Index = 0; Index < WordList.Num(); Index++)
+    {
+        if (WordList[Index].Len() >= 4 && WordList[Index].Len() <= 8 && IsIsogram(WordList[Index]))
+        {
+            ValidWords.Emplace(WordList[Index]);
+        }
+    }
+    return ValidWords;
 }
 void UBullCowCartridge::Introduction()
 {
@@ -56,12 +55,12 @@ void UBullCowCartridge::ProcessGuess(FString Guess)
         --Lives;
         if (!IsIsogram(Guess))
             {
-                PrintLine(FString::Printf(TEXT("You have %i bull."), Lives));
+            PrintLine(TEXT("Not found any repeating letters,\n"
+                "with hidden word."));
             }
         else
             {
-                PrintLine(TEXT("Not found any repeating letters,\n"
-                    "with hidden word."));
+            PrintLine(FString::Printf(TEXT("You have %i bull."), Lives));
             }
         if (HiddenWord.Len() != Guess.Len())
         {
