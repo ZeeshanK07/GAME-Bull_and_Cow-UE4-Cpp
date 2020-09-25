@@ -6,9 +6,19 @@ void UBullCowCartridge::BeginPlay()
     Super::BeginPlay();
     InitGame();
     PrintLine(TEXT("   Click: Mouse, next TAB and play!\n"));
-    for (int32 one_word = 0; one_word < 5; one_word++)
+    PrintLine(FString::Printf(TEXT("Number of all hidden words is: %i"), Words.Num()));
+    
+    TArray<FString> ValidWords;
+    for (int32 Index = 0; Index < 10; Index++)
     {
-        PrintLine(TEXT("%i word in words array is: %s"), one_word, *Words[one_word]);
+        if (Words[Index].Len() >= 4 && Words[Index].Len() <=8)
+        {
+            ValidWords.Emplace(Words[Index]);
+        }
+    }
+    for (int32 Index = 0; Index < ValidWords.Num(); Index++)
+    {
+        PrintLine(FString::Printf(TEXT("%s"), *ValidWords[Index]));
     }
 }
 void UBullCowCartridge::InitGame()
