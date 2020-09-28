@@ -9,11 +9,10 @@ void UBullCowCartridge::BeginPlay()
 }
 void UBullCowCartridge::InitGame()
 {
-    HiddenWord = TEXT("cola");
+    HiddenWord = GetValidWords(Words)[FMath::RandRange(0, GetValidWords(Words).Num() - 1)];
     Lives = HiddenWord.Len() + 1;
     bGameOver = false;
     Introduction();
-    PrintLine(TEXT("Numbers of valid words is: %i"), GetValidWords(Words).Num());
 }
 TArray<FString> UBullCowCartridge::GetValidWords(const TArray<FString>& WordList) const
 {
@@ -36,6 +35,7 @@ void UBullCowCartridge::Introduction()
         "2. If You will write 1 good letter:\n"
         "   In good site = +1 Bull and -1 live.\n"
         "   In bad site = +1 Cow and -1 live.\n"), HiddenWord.Len()));
+    PrintLine(FString::Printf(TEXT("The HiddenWord is: %s"), *HiddenWord));
 }
 void UBullCowCartridge::OnInput(const FString& PlayerInput)
 {
