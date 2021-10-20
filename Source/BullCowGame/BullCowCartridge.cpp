@@ -116,7 +116,7 @@ void UBullCowCartridge::EndGame(const FString& Guess)
         if (GameStatus == "Player win")
         {
             ClearScreen();
-            PrintLine(TEXT("Good, YOU WIN!"));
+            PrintLine(TEXT("Congratulations!!, YOU WIN!"));
             PrintLine(TEXT("\n\n"
                 "If You want play again write Yes\n"
                 "If You don't want play again click ESC"));
